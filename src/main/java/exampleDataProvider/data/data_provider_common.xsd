@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+  targetNamespace="http://www.library.epam.com/data_provider_common"
+  xmlns:tns="http://www.library.epam.com/data_provider_common"
+  elementFormDefault="qualified"
+  attributeFormDefault="unqualified">
+
+  <element name="dataProviders">
+    <complexType>
+      <sequence>
+        <element name="dataProvider" type="tns:dataProviderType" minOccurs="1" maxOccurs="15"/>
+      </sequence>
+    </complexType>
+  </element>
+
+  <complexType name="dataProviderType">
+    <sequence>
+      <element name="test" type="tns:testType" minOccurs="1" maxOccurs="15"/>
+    </sequence>
+    <attribute name="name" type="string" use="required"/>
+    <attribute name="TmsLink" type="all" use="required"/>
+  </complexType>
+
+  <complexType name="testType">
+    <sequence>
+      <element name="value" type="tns:valueType" minOccurs="1"/>
+      <element name="result" type="tns:resultType" minOccurs="0"/>
+    </sequence>
+    <attribute name="description" type="string" use="required"/>
+  </complexType>
+
+
+  <simpleType name="valueType">
+    <restriction base="string">
+      <pattern value="[ -_a-zA-Z.|~]*"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="resultType">
+    <restriction base="string">
+      <pattern value="[ -_a-zA-Z.|~]*"/>
+    </restriction>
+  </simpleType>
+</schema>

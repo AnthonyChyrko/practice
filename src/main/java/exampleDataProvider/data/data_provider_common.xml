@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataProviders xmlns="http://www.library.epam.com/data_provider_common"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.library.epam.com/data_provider_common data_provider_common.xsd">
+
+  <dataProvider TmsLink="2.2.6" name="testSearchByWordWithWildcardAtTheBeginningOfWord" >
+    <test description="Search by word with wildcard at the beginning of word from Search field on Home page (OR operation by default if there are no operands or +/-/| symbols before search word) )">
+      <value>*rchitect</value>
+      <result>Operators * and ? cannot be used at the beginning of a word</result>
+    </test>
+    <test description="Search by word with wildcard at the beginning of word from Search field on Home page (NOT operand)">
+      <value>-*rchitect</value>
+      <result>Operators * and ? cannot be used at the beginning of a word</result>
+    </test>
+    <test description="Search by word with wildcard at the beginning of word from Search field on Home page (AND operand)">
+      <value>+*rchitect</value>
+      <result>Operators * and ? cannot be used at the beginning of a word</result>
+    </test>
+    <test description="Search by word with wildcard at the beginning of word in the compalex phrase from Search field on Home page (OR operand used as | symbol)">
+      <value>software |*esting</value>
+      <result>Operators * and ? cannot be used at the beginning of a word</result>
+    </test>
+    <test description="Search by word with wildcard at the beginning of word in the compalex phrase as exact match from Search field on Home page">
+      <value>"software *esting"</value>
+      <result>Operators * and ? cannot be used at the beginning of a word</result>
+    </test>
+    <test description="Search by word with wildcard at the beginning of word in the compalex phrase with | symbol as exact match from Search field on Home page ">
+      <value>"software |*esting"</value>
+      <result>Search request prefix should be at least 3 chars length if wildcard is included.</result>
+    </test>
+  </dataProvider>
+
+  <dataProvider TmsLink="2.2.7" name="testAdvancedSearchByWordWithWildcardAtTheBeginningOfWord">
+  <test description="Search by word with wildcard at the beginning of word  from Advanced search ( OR operation by default)">
+    <value>*esting</value>
+    <result>Operators * and ? cannot be used at the beginning of a word</result>
+  </test>
+    <test description="Search by word with wildcard at the beginning of word  from Advanced search ( OR operation by | symbol)">
+      <value>|*esting</value>
+      <result>Term prefix |*esting could result in too slow queries. Search request prefix should be at least 3 chars length if wildcard is included.</result>
+    </test>
+    <test description="Search by word with wildcard at the beginning of word  from Advanced search page  (AND operation )">
+      <value>+*esting</value>
+      <result>Term prefix +*esting could result in too slow queries. Search request prefix should be at least 3 chars length if wildcard is included.</result>
+    </test>
+    <test description="Search by word with wildcard at the beginning of word  from Advanced search page  (NOT operation )">
+      <value>-*esting</value>
+      <result>Term prefix -*esting could result in too slow queries. Search request prefix should be at least 3 chars length if wildcard is included.</result>
+    </test>
+</dataProvider>
+
+  <dataProvider TmsLink="2.2.10" name="testSearchByWordWithWildcardInTheMiddle">
+    <test description="Search by word with wildcard in the middle of word from Search field on Home page (less 3 symbols from the beginning)">
+      <value>"d*or"</value>
+      <result>Term prefix d*or could result in too slow queries. Search request prefix should be at least 3 chars length if wildcard is included.</result>
+    </test>
+    
+    <test description="Search by word with wildcard in the middle of word from Search field on Home page (>=3 symbols from the beginning)">
+      <value>"doc*r"</value>
+      <result></result>
+    </test>
+  </dataProvider>
+
+  <dataProvider TmsLink="2.1.11" name="testAdvancedSearchByWordWithWildcard">
+    <test description="Search by word with wildcard in the middle of word from Advanced search page (less 3 symbols from the beginning)">
+      <value>d*or</value>
+      <result>Term prefix d*or could result in too slow queries. Search request prefix should be at least 3 chars length if wildcard is included.</result>
+    </test>
+    <test description="Search by word with wildcard in the middle of word from Advanced search page (>=3 symbols from the beginning)">
+      <value>"doc*r"</value>
+      <result></result>
+    </test>
+    <test description="Search by word with wildcard at the end of word from Search field on Home page">
+      <value>docto*</value>
+      <result></result>
+    </test>
+    <test description="Search by word with wildcard at the end of word from from Advanced search page">
+      <value>docto*</value>
+      <result></result>
+    </test>
+    <test description="Search by word with wildcard at the end and middle of word on Home page">
+      <value>doc*o*</value>
+      <result></result>
+    </test>
+    <test description="Search by word with wildcard and ! from the search field on the Home page">
+      <value>doc*or!</value>
+      <result></result>
+    </test>
+    <test description="Search by word with wildcard and ! from the query builder on the Advanced page">
+      <value>doc*or!</value>
+      <result></result>
+    </test>
+    <test description="Search by word with wildcard at the end  of word on Home page with proximity">
+      <value>"Apple watch*"~5</value>
+      <result></result>
+    </test>
+    <test description="Search by word with wildcard at the end  of 2 words on Home page with proximity">
+      <value>"Appl* watch*"~5</value>
+      <result></result>
+    </test>
+    <test description="Search by word with wildcard at the end and middle of word from Advanced search page">
+      <value>doc*o*</value>
+      <result></result>
+    </test>
+    <test description="Search by word with wildcard at the end  of word on Advanced page with proximity">
+      <value>"Apple watch*"~5</value>
+      <result></result>
+    </test>
+    <test description="Search by word with wildcard at the end  of 2 words on Advanced page with proximity">
+      <value>"Appl* watch*"~5</value>
+      <result></result>
+    </test>
+  </dataProvider>
+
+  <dataProvider TmsLink="2.2.12" name="testSearchByWordWithQuestionMarkAtTheBeginningOfWord">
+    <test description="Search by word with ? at the beginning of word from Search field on Home page">
+      <value>?rchitect</value>
+      <result>Operators * and ? cannot be used at the beginning of a word</result>
+    </test>
+    <test description="Search by word with ? at the beginning of word from Search field on Home page with | symbol (OR operand)">
+      <value>|?rchitect</value>
+      <result>Operators * and ? cannot be used at the beginning of a word</result>
+    </test>
+    <test description="Search by word with ? at the beginning of word from Search field on Home page with - symbol (NOT operand)">
+      <value>-?rchitect</value>
+      <result>Operators * and ? cannot be used at the beginning of a word</result>
+    </test>
+    <test description="Search by word with ? at the beginning of word from Search field on Home page with + symbol (NOT operand)">
+      <value>+?rchitect</value>
+      <result>Operators * and ? cannot be used at the beginning of a word</result>
+    </test>
+  </dataProvider>
+
+  <dataProvider TmsLink="2.2.13" name="testAdvancedSearchByWordWithQuestionMarkAtTheBeginningOfWord">
+    <test description="Search by word with ? at the beginning of word from Advanced search">
+      <value>?rchitect</value>
+      <result>Operators * and ? cannot be used at the beginning of a word</result>
+    </test>
+    <test description="Search by word with ? at the beginning of word from Advanced search with | symbol">
+      <value>|?rchitect</value>
+      <result>Operators * and ? cannot be used at the beginning of a word</result>
+    </test>
+    <test description="Search by word with ? at the beginning of word from Advanced search with + symbol">
+      <value>+?rchitect</value>
+      <result>Operators * and ? cannot be used at the beginning of a word</result>
+    </test>
+    <test description="Search by word with ? at the beginning of word from Advanced search with - symbol">
+      <value>-?rchitect</value>
+      <result>Operators * and ? cannot be used at the beginning of a word</result>
+    </test>
+  </dataProvider>
+
+
+  
+</dataProviders>

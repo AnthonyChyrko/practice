@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<data>
+  <objects>
+    <item>"Word OR word 1"</item>
+    <item>Logical operator OR can't be used inside an exact text search expression. Please check that double quotes are placed correctly in search query or replace 'OR' with 'or' to use it as search term rather than operator.
+    </item>
+  </objects>
+  <objects>
+    <item>"Word AND word 1"</item>
+    <item>Logical operator AND can't be used inside an exact text search expression. Please check that double quotes are placed correctly in search query or replace 'AND' with 'and' to use it as search term rather than operator.
+    </item>
+  </objects>
+  <objects>
+    <item>"Word NOT word 1"</item>
+    <item>Logical operator NOT can't be used inside an exact text search expression. Please check that double quotes are placed correctly in search query or replace 'NOT' with 'not' to use it as search term rather than operator.
+    </item>
+  </objects>
+</data>
